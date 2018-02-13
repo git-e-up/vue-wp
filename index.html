@@ -26,7 +26,11 @@
       <li class="main-nav__item" v-for="item in items">
         {{ item.message }}
       </li>
+      <div class="ssl-warning" v-bind:class="{ active: isActive }">
+        <p>Sorry, I didn't want to pay godaddy $75 for SSL so you'll need to allow your browser from unauthenticated sources</p>
+      </div>
     </ul>
+
     <script src="scripts.js"></script>
   </body>
 </html>
