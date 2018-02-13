@@ -8,11 +8,24 @@
 
   </head>
   <body>
-    <div id="app">
-      {{ message }}
+    <!-- <div id="app">
+      <p>{{ origin | json}}</p>
+    </div> -->
+
+
+    <div id="example">
+      <my-component></my-component>
     </div>
 
+    <div id="my_view">
+      <p>{{ origin | json }}</p>
+    </div>
+
+    <ul id="app">
+      <li v-for="item in items">
+        {{ item.message }}
+      </li>
+    </ul>
     <script src="scripts.js"></script>
-    <!-- <script src="scripts.bundle.js"></script> -->
   </body>
 </html>
