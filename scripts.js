@@ -7,7 +7,7 @@ var vm = new Vue({
     ]
   },
   mounted: function(){
-    this.$http.get('//matthewlissner.com/wp-json/wp/v2/hot_sauces?filter[orderby]=date&order=asc').then(response => {
+    this.$http.get('http://matthewlissner.com/wp-json/wp/v2/hot_sauces?filter[orderby]=date&order=asc').then(response => {
 
       // get body data
       // console.log(response.body[1].date);
