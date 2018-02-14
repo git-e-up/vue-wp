@@ -1,4 +1,4 @@
-// run sass --watch styles/style.scss:output.css
+// run: sass --watch styles/style.scss:output.css
 * {
   font-family: 'futura-pt', 'Libre Franklin', sans-serif;
   font-weight: 700;
@@ -262,4 +262,217 @@ a {
   line-height: 48px;
   margin-bottom: 10px;
   cursor: pointer;
+}
+
+
+//animation stuff
+#matt-img {
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  height: 100%;
+  max-width: 30%;
+  @media(min-width: $screen-sm-min){
+      max-width: 15%;
+  }
+  cursor: pointer;
+  path {
+    stroke: $blue-steel;
+    stroke-width: 20;
+    stroke-dasharray: 8000;
+    stroke-dashoffset: 8000;
+    animation: drawMatt 4s 1 linear;
+    animation-fill-mode: forwards;
+  }
+  &:active {
+
+    path {
+      animation: drawMatt2 4s 1 ease;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes drawMatt {
+  to {
+    stroke-dashoffset: 0;
+    fill: $blue-steel;
+    fill-opacity: 1;
+  }
+}
+@keyframes drawMatt2 {
+  to {
+    stroke-dashoffset: 0;
+    fill: $blue-steel;
+    fill-opacity: 1;
+  }
+}
+
+#matthew-svg {
+  max-width: 60%;
+  max-height: 95%;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  @media(min-width: $screen-sm-min) {
+      max-width: 40%;
+  }
+  path {
+    fill-opacity: 0;
+    stroke: $blue-steel;
+    stroke-width: 2;
+    stroke-dasharray: 870;
+    stroke-dashoffset: 870;
+    animation: drawSVG 4s 1 linear;
+    animation-fill-mode: forwards;
+  }
+  &:active {
+
+    path {
+      animation: drawSVG2 4s 1 ease;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes drawSVG {
+
+  to {
+    stroke-dashoffset: 0;
+    fill: $blue-steel;
+    fill-opacity: 1;
+  }
+}
+@keyframes drawSVG2 {
+  to {
+    stroke-dashoffset: 0;
+    fill: $blue-steel;
+    fill-opacity: 1;
+  }
+}
+
+.main-nav__item--bouncing {
+  animation: bounce 1.2s;
+  animation-delay: 0.6s;
+  background-color: $blue-steel;
+  color: white;
+}
+
+@keyframes bounce {
+
+  15% {
+    transform:translateY(-20%);
+  }
+  25% {
+    transform:translateY(0%);
+  }
+  50% {
+    transform:translateY(-15%);
+  }
+  70% {
+      transform:translateY(0%);
+  }
+  80% {
+    transform:translateY(-15%);
+  }
+  90% {
+    transform:translateY(0%);
+  }
+  95% {
+    transform:translateY(-7%);
+  }
+
+  100% {
+    transform:translateY(0);
+    opacity: 1;
+  }
+}
+
+
+.info--sliding-right {
+  animation: slidein-right 1s 2;
+  animation-delay: 0.6s;
+  animation-direction: alternate;
+}
+@keyframes slidein-right {
+  from {
+    margin-left: 0%;
+    width: 100%;
+    opacity: 1;
+  }
+
+  to {
+    margin-left: 100%;
+    width: 100%;
+    opacity: 0;
+    background-color: #f3f2ed;
+
+  }
+}
+
+
+
+.info--sliding-left {
+  animation: slidein-left 1s 2;
+  animation-delay: 0.6s;
+  animation-direction: alternate;
+}
+@keyframes slidein-left {
+  from {
+    margin-left: 0%;
+    width: 100%;
+    opacity: 1;
+  }
+
+  to {
+    margin-left: -100%;
+    width: 100%;
+    opacity: 0;
+    // max-height: 50px;
+    background-color: #f3f2ed;
+  }
+}
+
+
+
+.info--sliding-up {
+  animation: slidein-up 2s;
+  animation-delay: 0.6s;
+  animation-direction: alternate;
+
+}
+@keyframes slidein-up {
+  0% {
+    margin-top: 0;
+    height: 100%;
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.2;
+    background-color: #f3f2ed;
+  }
+
+  50% {
+    margin-top:100vh;
+    height: 100%;
+    opacity: 0;
+    background-color: #f3f2ed;
+  }
+  90% {
+    opacity: 0.2;
+    background-color: white;
+  }
+  100% {
+    margin-top: 0;
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+.arrow--sliding {
+  &:before, &:after {
+    border-color: transparent;
+  }
 }

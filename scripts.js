@@ -19,29 +19,24 @@ var vm = new Vue({
 })
 
 
-Vue.component('my-component', {
-  template: '<div>A customz component!</div>'
-})
-new Vue({
-  el: '#example'
-})
 
-new Vue({
-    el: '#my_view',
-    data: {
-       origin: ''
-    },
 
-    ready: function() {
-
-        // GET request
-        this.$http.get('http://httpbin.org/ip', function (data) {
-            // set data on vm
-            this.$set('origin', data)
-
-        }).error(function (data, status, request) {
-            // handle error
-        })
-
-      }
-})
+// new Vue({
+//     el: '#my_view',
+//     data: {
+//        origin: ''
+//     },
+//
+//     ready: function() {
+//
+//         // GET request
+//         this.$http.get('http://httpbin.org/ip', function (data) {
+//             // set data on vm
+//             this.$set('origin', data)
+//
+//         }).error(function (data, status, request) {
+//             // handle error
+//         })
+//
+//       }
+// })
