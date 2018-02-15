@@ -4,7 +4,7 @@ var vm = new Vue({
     items: [],
     isActive: false,
     show: true,
-    bouncing: false,
+
   },
   mounted: function(){
     this.$http.get('http://matthewlissner.com/wp-json/wp/v2/hot_sauces?filter[orderby]=date&order=asc').then(response => {

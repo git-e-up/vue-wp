@@ -22,7 +22,7 @@
 
     <section id="app">
       <ul class="main-nav">
-        <li class="main-nav__item" v-for="(item, index) in items" v-html="item.message" :data-postIndex="index+2" v-on:click="bounce" v-bind:class="{ 'main-nav__item--bouncing': bouncing, '': !bouncing }">
+        <li class="main-nav__item" v-for="(item, index) in items" v-html="item.message" :data-postIndex="index+2" v-on:click="bounce">
           <!-- {{ item.message }} -->
         </li>
       </ul>
