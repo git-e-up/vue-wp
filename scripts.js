@@ -4,7 +4,7 @@ var vm = new Vue({
     items: [],
     isActive: false,
     show: true,
-
+    introMessage:  'Hiyo'
   },
   mounted: function(){
     this.$http.get('http://matthewlissner.com/wp-json/wp/v2/hot_sauces?filter[orderby]=date&order=asc').then(response => {
@@ -19,14 +19,23 @@ var vm = new Vue({
     });
   },
   methods: {
+    begin: () => {
+      setTimeout(() => {
+          console.log('fdsafddfds');
+      }, 2000);
+    },
     bounce: function (event) {
       this.items.forEach(function(val, i){
         let elements = document.getElementsByClassName('main-nav__item');
         elements[i].classList.remove('main-nav__item--bouncing');
       })
       event.target.classList.add('main-nav__item--bouncing');
+      this.introMessage = event.target.innerHTML;
     }
-  }
+  },
+  updated(){
+     this.begin()
+  },
 })
 
 // var fade = document.getElementsByClassName('init-header');
