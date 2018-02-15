@@ -33,7 +33,7 @@ var vm = new Vue({
       this.introMessage = event.target.innerHTML;
     }
   },
-  updated(){
+  beforeMount(){
      this.begin()
   },
 })
