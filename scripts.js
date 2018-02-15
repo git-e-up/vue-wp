@@ -19,10 +19,14 @@ var vm = new Vue({
     });
   },
   methods: {
-    begin: () => {
+    begin: function (event) {
       setTimeout(() => {
-          console.log('fdsafddfds');
-      }, 2000);
+        let elements = document.getElementsByClassName('main-nav__item');
+        elements[0].classList.add('main-nav__item--bouncing');
+        console.log(elements[0].innerHTML);
+        // this.introMessage = elements[0].innerHTML;
+        this.introMessage = this.items[0].message;
+      }, 1000);
     },
     bounce: function (event) {
       this.items.forEach(function(val, i){
@@ -36,6 +40,7 @@ var vm = new Vue({
   beforeMount(){
      this.begin()
   },
+
 })
 
 // var fade = document.getElementsByClassName('init-header');
