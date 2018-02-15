@@ -2,7 +2,9 @@ var vm = new Vue({
   el: '#app',
   data: {
     items: [],
-    isActive: false
+    isActive: false,
+    show: true,
+    bouncing: false,
   },
   mounted: function(){
     this.$http.get('http://matthewlissner.com/wp-json/wp/v2/hot_sauces?filter[orderby]=date&order=asc').then(response => {
@@ -15,28 +17,34 @@ var vm = new Vue({
       this.isActive = true;
       // error callback
     });
+  },
+  methods: {
+    bounce: function (event) {
+      this.items.forEach(function(val, i){
+        let elements = document.getElementsByClassName('main-nav__item');
+        elements[i].classList.remove('main-nav__item--bouncing');
+      })
+      event.target.classList.add('main-nav__item--bouncing');
+    }
   }
 })
 
-
-
-
-// new Vue({
-//     el: '#my_view',
-//     data: {
-//        origin: ''
-//     },
+// var fade = document.getElementsByClassName('init-header');
 //
-//     ready: function() {
+// function fadeIn(el) {
+//   el.style.opacity = 0;
 //
-//         // GET request
-//         this.$http.get('http://httpbin.org/ip', function (data) {
-//             // set data on vm
-//             this.$set('origin', data)
 //
-//         }).error(function (data, status, request) {
-//             // handle error
-//         })
+//   var tick = function() {
+//     el.style.opacity = +el.style.opacity + 0.01;
 //
-//       }
-// })
+//
+//     if (+el.style.opacity < 1) {
+//       (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
+//     }
+//   };
+//
+//   tick();
+// }
+//
+// fadeIn(fade);

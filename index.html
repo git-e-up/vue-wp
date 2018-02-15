@@ -14,23 +14,27 @@
     </div> -->
 
 
-    <section class="svgs">
+    <section class="svg">
       <my-name></my-name>
       <my-photo></my-photo>
     </section>
 
-    <!-- <div id="my_view">
-      <p>{{ origin | json }}</p>
-    </div> -->
 
-    <ul class="main-nav" id="app">
-      <li class="main-nav__item" v-for="(item, index) in items" v-html="item.message" :data-postIndex="index+2">
-        <!-- {{ item.message }} -->
-      </li>
+    <section id="app">
+      <ul class="main-nav">
+        <li class="main-nav__item" v-for="(item, index) in items" v-html="item.message" :data-postIndex="index+2" v-on:click="bounce" v-bind:class="{ 'main-nav__item--bouncing': bouncing, '': !bouncing }">
+          <!-- {{ item.message }} -->
+        </li>
+      </ul>
       <div class="ssl-warning" v-bind:class="{ active: isActive }">
         <p>Sorry, I didn't want to pay godaddy $75 for SSL so you'll need to allow your browser from unauthenticated sources</p>
       </div>
-    </ul>
+      <div class="col-xs-12 text-center info">
+        <transition name="slide-fade">
+          <h1 class="init-header" v-if="show">Hi There</h1>
+        </transition>
+      </div>
+    </section>
 
     <script src="scripts.js"></script>
     <script src="svg.js"></script>
